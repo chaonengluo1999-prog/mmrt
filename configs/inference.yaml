@@ -1,0 +1,53 @@
+feeder: dataset.dataloader_video.BaseFeeder
+phase: test
+dataset: CSL-Daily
+
+work_dir: ./work_dir/
+batch_size: 1
+random_seed: 0
+test_batch_size: 1
+num_worker: 0
+device: cpu
+log_interval: 10
+eval_interval: 1
+save_interval: 10
+
+evaluate_tool: python
+loss_weights:
+  SeqCTC: 1.0
+  ConvCTC: 1.0
+  Dist: 25.0
+
+load_weights: ./checkpoints/mmrt_best.pt
+load_checkpoints: false
+
+optimizer_args:
+  optimizer: Adam
+  learning_rate:
+    base_lr: 0.0001
+  step: [20, 30, 35]
+  learning_ratio: 1
+  scheduler: ScheaL
+  weight_decay: 0.0001
+  start_epoch: 0
+  num_epoch: 101
+  nesterov: false
+
+feeder_args:
+  mode: 'test'
+  datatype: 'video'
+  num_gloss: -1
+  drop_ratio: 1.0
+  frame_interval: 1
+  image_scale: 1.0
+  input_size: 224
+
+model: models.mmrt_inference_model.MMRTInferenceModel
+decode_mode: beam
+model_args:
+  num_classes: 1296
+  c2d_type: resnet18
+  conv_type: 2
+  use_bn: true
+  share_classifier: true
+  weight_norm: true

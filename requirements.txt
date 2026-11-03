@@ -1,0 +1,33 @@
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+timm>=0.9.0
+einops>=0.6.1
+
+# Computer Vision
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# NLP / LLM
+openai>=1.0.0
+
+# Audio (TTS)
+edge-tts>=6.1.0
+
+# Scientific Computing
+numpy>=1.24.0
+scipy>=1.10.0
+
+# API Server
+fastapi>=0.103.0
+uvicorn>=0.23.0
+python-multipart>=0.0.6
+
+# Config
+pyyaml>=6.0.1
+
+# CTC Decoding (build from source)
+# ctcdecode
+
+# Utilities
+tqdm>=4.65.0

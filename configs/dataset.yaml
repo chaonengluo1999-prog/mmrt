@@ -1,0 +1,5 @@
+dataset_root: ~/Desktop/CSL-Daily
+dict_path: ./data/csl_daily/gloss_dict.npy
+train_info: ./preprocess/CSL-Daily/train_info.npy
+dev_info: ./preprocess/CSL-Daily/dev_info.npy
+test_info: ./data/csl_daily/test_info.npy
